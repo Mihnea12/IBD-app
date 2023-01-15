@@ -35,4 +35,9 @@ export class AppService {
     })
   }
 
+  public getLocations() {
+    let locationURL = this.URL + '/entities/locations'
+    return this.http.get<Location>(locationURL)
+  }
+
 }
