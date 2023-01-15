@@ -1,0 +1,28 @@
+_id: req_3be52a340ee24f9ea2e9e0fc9dc1d681
+type: Request
+parentId: wrk_7de0ed39f0024651bad8f6352713886a
+modified: 1673794749130
+created: 1673794582086
+url: localhost:8081/stats/visits
+name: STATS visit
+description: ""
+method: GET
+body:
+  mimeType: application/json
+  text: |-
+    {
+    		"location_id": "430c6617-637a-456f-ba6b-7f68ff6353e1"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+authentication: {}
+metaSortKey: -1673791205978
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

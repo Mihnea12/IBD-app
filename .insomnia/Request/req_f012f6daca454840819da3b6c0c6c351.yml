@@ -1,0 +1,33 @@
+_id: req_f012f6daca454840819da3b6c0c6c351
+type: Request
+parentId: wrk_7de0ed39f0024651bad8f6352713886a
+modified: 1673795481810
+created: 1673791541911
+url: localhost:8081/entities/user/visits
+name: VISITS entities
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"user_id":  "903e4ed8-5e50-4494-8935-03874eaa28d5",
+    	"location_id": "6d08f05a-474d-4fbc-a80f-491f068c77c4",
+    	"date_time":  "2015-09-15T14:00:13Z",
+    	"comment": "nu a mai fost bine",
+    	"rating": 1,
+    	"spending": 5.63
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+authentication: {}
+metaSortKey: -1673590514365.75
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

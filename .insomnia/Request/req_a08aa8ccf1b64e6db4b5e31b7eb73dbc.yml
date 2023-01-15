@@ -1,0 +1,21 @@
+_id: req_a08aa8ccf1b64e6db4b5e31b7eb73dbc
+type: Request
+parentId: wrk_7de0ed39f0024651bad8f6352713886a
+modified: 1673786021106
+created: 1673786014645
+url: localhost:8081/entities/locations
+name: LOCATIONS entities
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1673169691469
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
