@@ -1,0 +1,12 @@
+<div *ngIf="!logged">
+  <div class="auth-grid">
+    <label>username: </label>
+    <input type="text" [(ngModel)]="auth.username">
+    <label>password</label>
+    <input type="password" [(ngModel)]="auth.password">
+  </div>
+  <button (click)="login()">Login</button>
+</div>
+
+<alert></alert>
+
