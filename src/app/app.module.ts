@@ -32,13 +32,23 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon'
 import { MatButtonModule } from '@angular/material/button'
 import { DlDateTimeDateModule, DlDateTimePickerModule } from 'angular-bootstrap-datetimepicker';
+import { GeneralStatisticsComponent } from './general-statistics/general-statistics.component';
+import { TopVisitedComponent } from './general-statistics/top-visited/top-visited.component';
+import { TopExpensiveComponent } from './general-statistics/top-expensive/top-expensive.component';
+import { TopLowPricedComponent } from './general-statistics/top-low-priced/top-low-priced.component';
+import { TopRatedComponent } from './general-statistics/top-rated/top-rated.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GoogleMapComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    GeneralStatisticsComponent,
+    TopVisitedComponent,
+    TopExpensiveComponent,
+    TopLowPricedComponent,
+    TopRatedComponent
   ],
   imports: [
     BrowserModule,
