@@ -1,0 +1,29 @@
+_id: req_fd093a74ce3d42569ecba459484c3661
+type: Request
+parentId: wrk_7de0ed39f0024651bad8f6352713886a
+modified: 1673796468332
+created: 1673787869784
+url: localhost:8081/login
+name: User Login
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"password": "paess",
+    	"username": "coriina"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+authentication: {}
+metaSortKey: -1673787869784
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
