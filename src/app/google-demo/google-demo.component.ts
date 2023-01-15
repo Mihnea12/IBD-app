@@ -2,12 +2,13 @@ import { Component, OnInit, ViewChild, ElementRef, NgZone } from '@angular/core'
 import { GoogleMap } from '@angular/google-maps';
 
 @Component({
-  selector: 'msp',
+  selector: 'map',
   templateUrl: './google-demo.component.html',
   styleUrls: ['./google-demo.component.css']
 })
 export class GoogleMapComponent implements OnInit {
-    @ViewChild('search')
+
+  @ViewChild('search')
   public searchElementRef!: ElementRef;
   @ViewChild(GoogleMap)
   public map!: GoogleMap;
@@ -21,16 +22,28 @@ export class GoogleMapComponent implements OnInit {
     fullscreenControl: true,
     disableDoubleClickZoom: true,
     mapTypeId: 'hybrid',
-    // maxZoom:this.maxZoom,
-    // minZoom:this.minZoom,
   };
   latitude!: any;
   longitude!: any;
 
-  constructor(private ngZone: NgZone) {}
+  constructor(private ngZone: NgZone) {
+  }
+
+  markerOptions: google.maps.MarkerOptions = {draggable: false};
+  markerPositions: google.maps.LatLng[] = [];
+
+  addMarker(event: google.maps.MapMouseEvent) {
+    if(event.latLng != null)
+    {
+        this.markerPositions = [];
+        this.markerPositions.push(event.latLng);
+    }
+  }
 
   ngAfterViewInit(): void {
     // Binding autocomplete to search input control
+    // this.map = new google.maps.Map(document.getElementById('map')!);
+    console.log(this.map)
     let autocomplete = new google.maps.places.Autocomplete(
       this.searchElementRef.nativeElement
     );
@@ -40,6 +53,9 @@ export class GoogleMapComponent implements OnInit {
     );
     autocomplete.addListener('place_changed', () => {
       this.ngZone.run(() => {
+        //clear markers
+        this.markerPositions = []
+        
         //get the place result
         let place: google.maps.places.PlaceResult = autocomplete.getPlace();
 
@@ -57,6 +73,11 @@ export class GoogleMapComponent implements OnInit {
           lat: this.latitude,
           lng: this.longitude,
         };
+
+        var markerLocation = new google.maps.LatLng(this.latitude,this.longitude)
+        this.markerPositions.push(markerLocation);
+
+        this.map.fitBounds(autocomplete.getPlace().geometry!.viewport!);
       });
     });
   }
@@ -69,4 +90,5 @@ export class GoogleMapComponent implements OnInit {
       };
     });
   }
+
 }

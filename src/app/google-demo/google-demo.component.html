@@ -8,8 +8,7 @@
       type="text"
       #search
     />
-  </div>
-
+</div>
 <google-map
     id=map
     height="500px"
@@ -17,7 +16,11 @@
     [zoom]="zoom"
     [center]="center"
     [options]="options"
->
+    (mapClick)="addMarker($event)"
+> 
+  <map-marker *ngFor="let markerPosition of markerPositions"
+                [position]="markerPosition"
+                [options]="markerOptions"></map-marker>
 </google-map>
 
 
