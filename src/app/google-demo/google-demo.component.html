@@ -25,6 +25,8 @@
 
 <br>
 <button mat-raised-button (click)="addReview()">Add review</button>
+
+<button mat-raised-button (click)="addtoFavorites()" style="float: right">Add to favorites</button>
 <div class="review" id="review">
   <input
     type="text"
@@ -42,7 +44,7 @@
 </div>
 <br>
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-  
+
   <!-- Name Column -->
   <ng-container matColumnDef="nameUser">
     <th mat-header-cell *matHeaderCellDef> Name </th>

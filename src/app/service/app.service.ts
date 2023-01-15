@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {User} from "../model/User";
 import {Auth} from "../model/Auth";
+import { Location } from "../model/Location"
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +26,13 @@ export class AppService {
   public login(auth: Auth){
     let loginURL = this.URL + '/login';
     return this.http.post<User>(loginURL, auth);
+  }
+
+  public addFavorites(place: Location) {
+    let locationURL = this.URL + '/entities/locations'
+    this.http.post(locationURL, place).subscribe(response => {
+        console.log(response)
+    })
   }
 
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef, NgZone } from '@angular/core';
 import { GoogleMap } from '@angular/google-maps';
 import { MatTableDataSource } from '@angular/material/table';
+import { AppService } from '../service/app.service';
+import { Location } from '../model/Location';
 
 export interface Review {
     nameUser: string;
@@ -35,6 +37,8 @@ export class GoogleMapComponent implements OnInit {
   longitude!: any;
   reviews!: any;
   data!: any;
+  currentPlace !: any;
+  favoriteLocation: Location = new Location("", "", 0, 0, "", 0);
 
   markerOptions: google.maps.MarkerOptions = {draggable: false};
   markerPositions: google.maps.LatLng[] = [];
@@ -43,7 +47,7 @@ export class GoogleMapComponent implements OnInit {
   dataReviews : Review[];
   dataSource : MatTableDataSource<Review>;
 
-  constructor(private ngZone: NgZone) {
+  constructor(private ngZone: NgZone, private appService: AppService) {
     this.dataReviews = [];
     this.dataSource = new MatTableDataSource(this.dataReviews);
   }
@@ -58,8 +62,6 @@ export class GoogleMapComponent implements OnInit {
 
   ngAfterViewInit(): void {
     // Binding autocomplete to search input control
-
-    console.log(this.map)
     let autocomplete = new google.maps.places.Autocomplete(
       this.searchElementRef.nativeElement
     );
@@ -89,7 +91,8 @@ export class GoogleMapComponent implements OnInit {
           lat: this.latitude,
           lng: this.longitude,
         };
-
+        this.currentPlace = place;
+        console.log(this.currentPlace)
         var markerLocation = new google.maps.LatLng(this.latitude,this.longitude)
         this.markerPositions.push(markerLocation);
 
@@ -126,4 +129,13 @@ export class GoogleMapComponent implements OnInit {
         document.getElementById('review')!.style.display = "none"
   }
 
+  addtoFavorites() {
+      this.favoriteLocation.nameLocation = this.currentPlace.name;
+      this.favoriteLocation.locationId = this.currentPlace.place_id;
+      this.favoriteLocation.latitude = this.currentPlace.geometry.location?.lat();
+      this.favoriteLocation.longitude = this.currentPlace.geometry.location?.lng();
+      this.favoriteLocation.rating = this.currentPlace.rating;
+      this.favoriteLocation.type = this.currentPlace.types![0];
+      this.appService.addFavorites(this.favoriteLocation)
+  }
 }
