@@ -1,0 +1,34 @@
+_id: req_710334a9bd9c440c92346fd11b7b90a6
+type: Request
+parentId: wrk_7de0ed39f0024651bad8f6352713886a
+modified: 1673783387428
+created: 1673730788648
+url: localhost:8081/entities/users
+name: USERS entities
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"first_name": "Cori",
+    	"last_name": "Ina",
+    	"email": "test@gmail.com",
+    	"password": "pass",
+    	"username": "coriina",
+    	"age": 23,
+    	"occupation": "dev"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+authentication: {}
+metaSortKey: -1673730788648
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

@@ -1,0 +1,28 @@
+_id: req_f0755a36116448dbb1ec2a1862643fef
+type: Request
+parentId: wrk_7de0ed39f0024651bad8f6352713886a
+modified: 1673793931707
+created: 1673793864882
+url: localhost:8081/entities/user/visits
+name: VISIT-USER entities
+description: ""
+method: GET
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"user_id": "903e4ed8-5e50-4494-8935-03874eaa28d5"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+authentication: {}
+metaSortKey: -1673169691494
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
