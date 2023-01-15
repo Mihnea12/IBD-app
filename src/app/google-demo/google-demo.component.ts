@@ -1,5 +1,13 @@
 import { Component, OnInit, ViewChild, ElementRef, NgZone } from '@angular/core';
 import { GoogleMap } from '@angular/google-maps';
+import { MatTableDataSource } from '@angular/material/table';
+
+export interface Review {
+    nameUser: string;
+    text: string;
+    rating: number;
+    relativeTime: string;
+  }
 
 @Component({
   selector: 'map',
@@ -28,11 +36,17 @@ export class GoogleMapComponent implements OnInit {
   reviews!: any;
   data!: any;
 
-  constructor(private ngZone: NgZone) {
-  }
-
   markerOptions: google.maps.MarkerOptions = {draggable: false};
   markerPositions: google.maps.LatLng[] = [];
+
+  displayedColumns: string[] = ['nameUser', 'text', 'rating', 'relativeTime' ];
+  dataReviews : Review[];
+  dataSource : MatTableDataSource<Review>;
+
+  constructor(private ngZone: NgZone) {
+    this.dataReviews = [];
+    this.dataSource = new MatTableDataSource(this.dataReviews);
+  }
 
   addMarker(event: google.maps.MapMouseEvent) {
     if(event.latLng != null)
@@ -44,7 +58,7 @@ export class GoogleMapComponent implements OnInit {
 
   ngAfterViewInit(): void {
     // Binding autocomplete to search input control
-    // this.map = new google.maps.Map(document.getElementById('map')!);
+
     console.log(this.map)
     let autocomplete = new google.maps.places.Autocomplete(
       this.searchElementRef.nativeElement
@@ -82,8 +96,16 @@ export class GoogleMapComponent implements OnInit {
         this.map.fitBounds(autocomplete.getPlace().geometry!.viewport!);
         
         this.reviews = place.reviews
-        console.log(this.reviews)
-
+        this.reviews.forEach((review: any) => {
+            var newReview = {
+                nameUser: review.author_name,
+                text: review.text,
+                rating: review.rating,
+                relativeTime: review.relative_time_description
+            }
+            this.dataReviews.push(newReview)
+        });
+        this.dataSource = new MatTableDataSource(this.dataReviews);
       });
     });
   }

@@ -32,6 +32,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon'
 import { MatButtonModule } from '@angular/material/button'
 import { DlDateTimeDateModule, DlDateTimePickerModule } from 'angular-bootstrap-datetimepicker';
+import { MatTableModule } from '@angular/material/table'
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import { DlDateTimeDateModule, DlDateTimePickerModule } from 'angular-bootstrap-
     MatButtonModule,
     MatRippleModule,
     DlDateTimeDateModule,  // <--- Determines the data type of the model
-    DlDateTimePickerModule
+    DlDateTimePickerModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
