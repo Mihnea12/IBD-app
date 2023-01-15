@@ -1,0 +1,4 @@
+.register-grid {
+  display: grid;
+  grid-template-columns: auto auto;
+}

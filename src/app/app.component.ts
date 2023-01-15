@@ -9,6 +9,6 @@ export class AppComponent implements OnInit {
   title = 'IBD-app';
 
   ngOnInit() {
-    
+    localStorage.setItem('loginBool', "false" );
   }
 }
