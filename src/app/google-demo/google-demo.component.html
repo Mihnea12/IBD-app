@@ -1,5 +1,5 @@
 <div>
-    <label>Enter address</label>
+    <!-- <label>Enter address</label> -->
     <input
       type="text"
       class="my-search-box"
@@ -23,5 +23,22 @@
                 [options]="markerOptions"></map-marker>
 </google-map>
 
+<br>
+<button mat-raised-button (click)="addReview()">Add review</button>
+<div class="review" id="review">
+  <input
+    type="text"
+    class="grade"
+    placeholder="Grade"
+    type="text"
+  />
+  <input
+  type="text"
+  class="comment"
+  placeholder="Comemnt"
+  type="text"
+  />
+  <input type="date"/>
+</div>
 
 

@@ -25,6 +25,13 @@ import {MdbValidationModule} from "mdb-angular-ui-kit/validation";
 import {MdbScrollspyModule} from "mdb-angular-ui-kit/scrollspy";
 import {MdbTabsModule} from "mdb-angular-ui-kit/tabs";
 import {AlertModule} from "./_alert";
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon'
+import { MatButtonModule } from '@angular/material/button'
+import { DlDateTimeDateModule, DlDateTimePickerModule } from 'angular-bootstrap-datetimepicker';
 
 @NgModule({
   declarations: [
@@ -56,6 +63,15 @@ import {AlertModule} from "./_alert";
     MdbValidationModule,
     BrowserAnimationsModule,
     AlertModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
+    MatInputModule,
+    MatIconModule,
+    MatButtonModule,
+    MatRippleModule,
+    DlDateTimeDateModule,  // <--- Determines the data type of the model
+    DlDateTimePickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

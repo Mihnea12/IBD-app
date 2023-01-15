@@ -25,6 +25,8 @@ export class GoogleMapComponent implements OnInit {
   };
   latitude!: any;
   longitude!: any;
+  reviews!: any;
+  data!: any;
 
   constructor(private ngZone: NgZone) {
   }
@@ -55,7 +57,7 @@ export class GoogleMapComponent implements OnInit {
       this.ngZone.run(() => {
         //clear markers
         this.markerPositions = []
-        
+
         //get the place result
         let place: google.maps.places.PlaceResult = autocomplete.getPlace();
 
@@ -78,6 +80,10 @@ export class GoogleMapComponent implements OnInit {
         this.markerPositions.push(markerLocation);
 
         this.map.fitBounds(autocomplete.getPlace().geometry!.viewport!);
+        
+        this.reviews = place.reviews
+        console.log(this.reviews)
+
       });
     });
   }
@@ -89,6 +95,13 @@ export class GoogleMapComponent implements OnInit {
         lng: position.coords.longitude,
       };
     });
+  }
+
+  addReview() {
+    if(document.getElementById('review')!.style.display == "none")
+        document.getElementById('review')!.style.display = "block"
+    else
+        document.getElementById('review')!.style.display = "none"
   }
 
 }
