@@ -68,7 +68,7 @@ export class TopRatedComponent {
       .attr("y", 0 - (50 / 2))
       .attr("text-anchor", "middle")
       .style("font-size", "16px")
-      .style("text-decoration", "underline")
+      .style("text-decoration", "none")
       .text("Top 10 Locations");
 
     var margin = {top: 20, right: 20, bottom: 40, left: 60}
