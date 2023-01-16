@@ -6,6 +6,7 @@ import {Visits} from "../model/Visits";
 import {Prices} from "../model/Prices";
 import {RatingPerLocation} from "../model/RatingPerLocation";
 import { Location } from "../model/Location"
+import { Visit } from '../model/Visit';
 
 @Injectable({
   providedIn: 'root'
@@ -64,6 +65,13 @@ export class AppService {
   public getVisitsForLocation(locationId: string){
     let visitsURL = this.URL + '/visits/timestamps' + locationId;
     return this.http.get<Date[]>(visitsURL);
+  }
+
+  public addVisit(visit: Visit) {
+    let visitURL = this.URL + '/entities/user/visits'
+    this.http.post(visitURL, visit).subscribe(response => {
+      console.log(response)
+    })
   }
 
 }
