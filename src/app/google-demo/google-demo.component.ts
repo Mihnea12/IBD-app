@@ -130,12 +130,17 @@ export class GoogleMapComponent implements OnInit {
   }
 
   addtoFavorites() {
-      this.favoriteLocation.nameLocation = this.currentPlace.name;
-      this.favoriteLocation.locationId = this.currentPlace.place_id;
+      document.getElementById('status')!.style.display = "block"
+      this.favoriteLocation.name = this.currentPlace.name;
+      this.favoriteLocation.location_id = this.currentPlace.place_id;
       this.favoriteLocation.latitude = this.currentPlace.geometry.location?.lat();
       this.favoriteLocation.longitude = this.currentPlace.geometry.location?.lng();
       this.favoriteLocation.rating = this.currentPlace.rating;
       this.favoriteLocation.type = this.currentPlace.types![0];
       this.appService.addFavorites(this.favoriteLocation)
+
+      setTimeout(() => {
+        document.getElementById('status')!.style.display = "none"
+      }, 3000)
   }
 }

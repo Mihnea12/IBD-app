@@ -24,24 +24,8 @@
 </google-map>
 
 <br>
-<button mat-raised-button (click)="addReview()">Add review</button>
-
-<button mat-raised-button (click)="addtoFavorites()" style="float: right">Add to favorites</button>
-<div class="review" id="review">
-  <input
-    type="text"
-    class="grade"
-    placeholder="Grade"
-    type="text"
-  />
-  <input
-  type="text"
-  class="comment"
-  placeholder="Comemnt"
-  type="text"
-  />
-  <input type="date" id="date"/>
-</div>
+<button mat-raised-button (click)="addtoFavorites()" style="float: left">Add to favorites</button>
+<button mat-button color="primary" style="float: left" class="status" id="status">SUCCESS!</button>
 <br>
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 

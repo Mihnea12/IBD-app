@@ -9,6 +9,7 @@
     border: 1px solid #ced4da;
   }
 
-.review {
-  display: none;
-}
+  .status {
+    display: none;
+    color: green;
+  }
