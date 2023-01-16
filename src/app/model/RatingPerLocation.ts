@@ -1,9 +1,9 @@
 export class RatingPerLocation {
   location: string;
-  rating: number;
+  avg_rating: number;
 
   constructor(location:string, rating: number) {
     this.location = location;
-    this.rating = rating;
+    this.avg_rating = rating;
   }
 }

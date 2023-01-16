@@ -1,32 +1,93 @@
 <div *ngIf="!loginBool">
-  <p>Please complete the form with your data</p>
-  <div>
-    <form class="form-control" #register="ngForm" (ngSubmit)="onClickSubmit()">
-      <div class="register-grid" style="max-width: 60%; margin: 0 auto">
-        <label class="col-form-label col-md-3">Username: </label>
-        <input class="col-md-9" placeholder="Please enter your username" name='username'
-               [(ngModel)]="registerUser.username">
-        <label class="col-form-label col-md-3">First Name: </label>
-        <input class="col-md-9" placeholder="Please enter your First Name" name="first_name"
-               [(ngModel)]="registerUser.first_name">
-        <label class="col-form-label col-md-3">Last Name: </label>
-        <input class="col-md-9" placeholder="Please enter your Last Name" name="last_name"
-               [(ngModel)]="registerUser.last_name">
-        <label class="col-form-label col-md-3">Email: </label>
-        <input class="col-md-9" placeholder="Please enter your email" name="email" [(ngModel)]="registerUser.email">
-        <label class="col-form-label col-md-3">Password: </label>
-        <input class="col-md-9" type="password" [(ngModel)]="registerUser.password" name="password">
-        <label class="col-form-label col-md-3">Occupation: </label>
-        <input class="col-md-9" placeholder="Please enter your Occupation" name="occuation"
-               [(ngModel)]="registerUser.occupation">
-        <label class="col-form-label col-md-3">Age: </label>
-        <input type="number" class="col-md-9" placeholder="Please enter your Age" name="age"
-               [(ngModel)]="registerUser.age">
-        <div style="padding-bottom: 30px">
-          <button (click)="router.navigate(['/'])">Cancel</button>
-          <button type="submit" (click)="router.navigate(['login'])">Register</button>
+  <div class="container-form">
+    <div class="form-wrapper">
+      <form class="form" #register="ngForm" (ngSubmit)="onClickSubmit()">
+        <div><p>Please complete the form with your data:</p></div>
+        <div class="input-container">
+          <div class="input-wrapper">
+            <label for="user">Username: </label>
+            <input
+              id="user"
+              placeholder="Please enter your username"
+              name="username"
+              [(ngModel)]="registerUser.username"
+            />
+          </div>
+          <div class="input-wrapper">
+            <label for="first-name">First Name: </label>
+            <input
+              id="first-name"
+              placeholder="Please enter your First Name"
+              name="first_name"
+              [(ngModel)]="registerUser.first_name"
+            />
+          </div>
+          <div class="input-wrapper">
+            <label for="last-name">Last Name: </label>
+            <input
+              id="last-name"
+              placeholder="Please enter your Last Name "
+              name="last_name"
+              [(ngModel)]="registerUser.last_name"
+            />
+          </div>
+          <div class="input-wrapper">
+            <label for="mail">Email: </label>
+            <input
+              id="mail"
+              placeholder="Please enter your Email "
+              name="email"
+              [(ngModel)]="registerUser.email"
+            />
+          </div>
+
+          <div class="input-wrapper">
+            <label for="pass">Password: </label>
+            <input
+              id="pass"
+              type="password"
+              placeholder="Please enter your Password "
+              [(ngModel)]="registerUser.password"
+              name="password"
+            />
+          </div>
+          <div class="input-wrapper">
+            <label for="ocup">Occupation: </label>
+            <input
+              id="ocup"
+              placeholder="Please enter your Occupation"
+              name="occuation"
+              [(ngModel)]="registerUser.occupation"
+            />
+          </div>
+          <div class="input-wrapper">
+            <label for="age">Age: </label>
+            <input
+              id="age"
+              type="number"
+              placeholder="Please enter your Age"
+              name="age"
+              [(ngModel)]="registerUser.age"
+            />
+          </div>
         </div>
-      </div>
-    </form>
+        <div class="input-container">
+          <div class="btn-cancel">
+            <button class="btn" (click)="router.navigate(['/'])">Cancel</button>
+          </div>
+          <div class="btn-register">
+            <button
+              class="btn"
+              type="submit"
+              (click)="router.navigate(['login'])"
+
+            >
+              <!--TODO Fix register-->
+              Register
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
 </div>

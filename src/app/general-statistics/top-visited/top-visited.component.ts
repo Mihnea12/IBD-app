@@ -71,7 +71,7 @@ export class TopVisitedComponent implements OnInit {
       .attr("y", 0 - (margin.top / 2))
       .attr("text-anchor", "middle")
       .style("font-size", "16px")
-      .style("text-decoration", "underline")
+      .style("text-decoration", "none")
       .text("Top 10 Most Visited Locations");
 
 

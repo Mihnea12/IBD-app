@@ -16,7 +16,7 @@ export class AppService {
 
   constructor(private http: HttpClient) {
     //TODO Backend Address
-    this.URL = 'http://localhost:8081';
+    this.URL = 'https://3c519289-75b3-47da-800b-aff1507b3ac7.mock.pstmn.io';
   }
 
   public register(user: User) {
@@ -59,6 +59,11 @@ export class AppService {
   public getLocations() {
     let locationURL = this.URL + '/entities/locations'
     return this.http.get<Location>(locationURL)
+  }
+
+  public getVisitsForLocation(locationId: string){
+    let visitsURL = this.URL + '/visits/' + locationId;
+    return this.http.get<Date[]>(visitsURL);
   }
 
 }
