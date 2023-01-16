@@ -32,6 +32,6 @@ export class FavoriteLocationsComponent {
     }
     redirect(location: Location) {
         console.log(location)
-        this.router.navigate(['/locations/' + location.locationId])
+        this.router.navigate(['/locations/' + location.location_id])
     }
 }

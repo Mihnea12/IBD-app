@@ -1,1 +1,28 @@
 <app-location-visits [locationId]="locationId"></app-location-visits>
+
+<button mat-raised-button (click)="addVisit()">Add visit</button>
+<div class="review" id="review">
+    <input
+      type="text"
+      class="rating"
+      id="rating"
+      placeholder="Rating"
+      type="text"
+    />
+    <input
+    type="text"
+    class="comment"
+    id="comment"
+    placeholder="Comemnt"
+    type="text"
+    />
+    <input
+    type="text"
+    class="cash"
+    id="cash"
+    placeholder="Cash"
+    type="text"
+    />
+    <input type="date" id="date"/>
+    <button mat-raised-button (click)="submitVisit()">Submit</button>
+</div>
