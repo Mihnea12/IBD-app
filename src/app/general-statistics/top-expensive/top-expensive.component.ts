@@ -22,7 +22,7 @@ export class TopExpensiveComponent {
   ngOnInit(): void {
     this.appService.getPrices().subscribe(data => {
       this.topExpensive = data;
-      this.topExpensive.sort((a: Prices, b: Prices) => b.price - a.price);
+      this.topExpensive.sort((a: Prices, b: Prices) => b.spending - a.spending);
       this.topExpensive = this.topExpensive.slice(0, 10);
       this.createSvg();
       this.drawBars(this.topExpensive);
@@ -56,7 +56,7 @@ export class TopExpensiveComponent {
 
     // Create the Y-axis band scale
     const y = d3.scaleLinear()
-      .domain([0, this.topExpensive[0].price])
+      .domain([0, this.topExpensive[0].spending])
       .range([this.height, 0]);
 
     // Draw the Y-axis on the DOM
@@ -87,9 +87,9 @@ export class TopExpensiveComponent {
       .enter()
       .append("rect")
       .attr("x", (d: Prices) => x(d.location))
-      .attr("y", (d: Prices) => y(d.price))
+      .attr("y", (d: Prices) => y(d.spending))
       .attr("width", x.bandwidth())
-      .attr("height", (d: Prices) => this.height - y(d.price))
+      .attr("height", (d: Prices) => this.height - y(d.spending))
       .attr("fill", "#d04a35");
   }
 }

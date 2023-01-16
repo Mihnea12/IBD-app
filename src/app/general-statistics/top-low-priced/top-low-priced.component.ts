@@ -22,7 +22,7 @@ export class TopLowPricedComponent {
   ngOnInit(): void {
     this.appService.getPrices().subscribe(data => {
       this.topExpensive = data;
-      this.topExpensive.sort((a:Prices, b:Prices) => a.price - b.price);
+      this.topExpensive.sort((a:Prices, b:Prices) => a.spending - b.spending);
       this.topExpensive = this.topExpensive.slice(0,10);
       this.createSvg();
       this.drawBars(this.topExpensive);
@@ -31,7 +31,7 @@ export class TopLowPricedComponent {
   }
 
   getTopValue(){
-    return this.topExpensive[this.topExpensive.length - 1].price;
+    return this.topExpensive[this.topExpensive.length - 1].spending;
   }
 
   private createSvg(): void {
@@ -92,9 +92,9 @@ export class TopLowPricedComponent {
       .enter()
       .append("rect")
       .attr("x", (d: Prices) => x(d.location))
-      .attr("y", (d: Prices) => y(d.price))
+      .attr("y", (d: Prices) => y(d.spending))
       .attr("width", x.bandwidth())
-      .attr("height", (d: Prices) => this.height - y(d.price))
+      .attr("height", (d: Prices) => this.height - y(d.spending))
       .attr("fill", "#2136b9");
   }
 }
