@@ -1,12 +1,35 @@
 <div *ngIf="!logged">
-  <div class="auth-grid">
-    <label>username: </label>
-    <input type="text" [(ngModel)]="auth.username">
-    <label>password</label>
-    <input type="password" [(ngModel)]="auth.password">
+  <div class="container-form">
+    <div class="form-wrapper">
+      <div class="form">
+        <div><p>Please enter your credentials below:</p></div>
+        <div class="input-wrapper">
+          <label for="user">Username: </label>
+          <input
+            id="user"
+            class="user-name-input"
+            type="text"
+            placeholder="Enter your username"
+            [(ngModel)]="auth.username"
+          />
+        </div>
+        <div class="input-wrapper">
+          <label for="pass">Password:</label>
+          <input
+            id="pass"
+            class="password-input"
+            type="password"
+            placeholder="Enter your password"
+            [(ngModel)]="auth.password"
+          />
+        </div>
+        <button class="btn" (click)="login()">Login</button>
+      </div>
+      <div>
+        <img src="" alt="" />
+      </div>
+    </div>
   </div>
-  <button (click)="login()">Login</button>
 </div>
 
 <alert></alert>
-

@@ -1,0 +1,22 @@
+.app-container {
+  width: 90%;
+  margin: 60px auto;
+}
+
+.app-container a {
+  text-decoration: none;
+  color: black;
+}
+
+.nav-bar {
+  margin: 15px 0;
+}
+
+.nav-link {
+  margin-right: 20px;
+  margin-bottom: 30px;
+}
+
+.content {
+  margin-top: 50px;
+}
