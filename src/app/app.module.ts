@@ -37,6 +37,8 @@ import { TopVisitedComponent } from './general-statistics/top-visited/top-visite
 import { TopExpensiveComponent } from './general-statistics/top-expensive/top-expensive.component';
 import { TopLowPricedComponent } from './general-statistics/top-low-priced/top-low-priced.component';
 import { TopRatedComponent } from './general-statistics/top-rated/top-rated.component';
+import { MatTableModule } from '@angular/material/table';
+import { FavoriteLocationsComponent } from './favorite-locations/favorite-locations.component'
 
 @NgModule({
   declarations: [
@@ -48,7 +50,8 @@ import { TopRatedComponent } from './general-statistics/top-rated/top-rated.comp
     TopVisitedComponent,
     TopExpensiveComponent,
     TopLowPricedComponent,
-    TopRatedComponent
+    TopRatedComponent,
+    FavoriteLocationsComponent
   ],
   imports: [
     BrowserModule,
@@ -81,7 +84,8 @@ import { TopRatedComponent } from './general-statistics/top-rated/top-rated.comp
     MatButtonModule,
     MatRippleModule,
     DlDateTimeDateModule,  // <--- Determines the data type of the model
-    DlDateTimePickerModule
+    DlDateTimePickerModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

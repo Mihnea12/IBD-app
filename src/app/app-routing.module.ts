@@ -4,12 +4,14 @@ import {GoogleMapComponent} from './google-demo/google-demo.component';
 import {LoginComponent} from "./login/login.component";
 import {RegisterComponent} from "./register/register.component";
 import {GeneralStatisticsComponent} from "./general-statistics/general-statistics.component";
+import { FavoriteLocationsComponent } from './favorite-locations/favorite-locations.component';
 
 const routes: Routes = [
   {path: 'map', component: GoogleMapComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'general-statistics', component: GeneralStatisticsComponent}
+  {path: 'general-statistics', component: GeneralStatisticsComponent},
+  {path: 'locations', component: FavoriteLocationsComponent}
 ];
 
 @NgModule({

@@ -5,6 +5,7 @@ import {Auth} from "../model/Auth";
 import {Visits} from "../model/Visits";
 import {Prices} from "../model/Prices";
 import {RatingPerLocation} from "../model/RatingPerLocation";
+import { Location } from "../model/Location"
 
 @Injectable({
   providedIn: 'root'
@@ -46,6 +47,18 @@ export class AppService {
     //TODO Add path
     let ratingsURL = this.URL + '/rating';
     return this.http.get<RatingPerLocation[]>(ratingsURL);
+  }
+
+  public addFavorites(place: Location) {
+    let locationURL = this.URL + '/entities/locations'
+    this.http.post(locationURL, place).subscribe(response => {
+        console.log(response)
+    })
+  }
+
+  public getLocations() {
+    let locationURL = this.URL + '/entities/locations'
+    return this.http.get<Location>(locationURL)
   }
 
 }

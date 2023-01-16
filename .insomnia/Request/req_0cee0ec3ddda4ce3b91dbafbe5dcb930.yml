@@ -1,0 +1,28 @@
+_id: req_0cee0ec3ddda4ce3b91dbafbe5dcb930
+type: Request
+parentId: wrk_7de0ed39f0024651bad8f6352713886a
+modified: 1673814283248
+created: 1673814240369
+url: localhost:8081/entities/user/locations
+name: LOCATIONS-USER entities
+description: ""
+method: GET
+body:
+  mimeType: application/json
+  text: |-
+    {
+    		"user_id": "34016d3f-cb8a-48f0-b4f8-e7c9a31b0733"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+authentication: {}
+metaSortKey: -1673169691487.75
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

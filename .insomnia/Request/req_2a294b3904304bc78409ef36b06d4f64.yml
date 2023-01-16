@@ -1,0 +1,25 @@
+_id: req_2a294b3904304bc78409ef36b06d4f64
+type: Request
+parentId: wrk_7de0ed39f0024651bad8f6352713886a
+modified: 1673815410664
+created: 1673815397932
+url: localhost:8081/stats/visits/ratings
+name: STATS rating visit
+description: ""
+method: GET
+body:
+  mimeType: application/json
+  text: ""
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+authentication: {}
+metaSortKey: -1673789537881
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
