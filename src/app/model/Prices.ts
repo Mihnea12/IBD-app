@@ -1,9 +1,9 @@
 export class Prices{
   location: string;
-  price: number;
+  spending: number;
 
-  constructor(location:string, price: number) {
+  constructor(location:string, spending: number) {
     this.location = location;
-    this.price = price;
+    this.spending = spending;
   }
 }
