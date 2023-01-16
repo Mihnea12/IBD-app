@@ -22,7 +22,7 @@ export class TopRatedComponent {
   ngOnInit(): void {
     this.appService.getRatings().subscribe(data => {
       this.topRated = data;
-      this.topRated.sort((a: RatingPerLocation, b: RatingPerLocation) => b.rating - a.rating);
+      this.topRated.sort((a: RatingPerLocation, b: RatingPerLocation) => b.avg_rating - a.avg_rating);
       this.topRated = this.topRated.slice(0, 10);
       this.createSvg();
       this.drawBars(this.topRated);
@@ -88,9 +88,9 @@ export class TopRatedComponent {
       .enter()
       .append("rect")
       .attr("x", (d: RatingPerLocation) => x(d.location))
-      .attr("y", (d: RatingPerLocation) => y(d.rating))
+      .attr("y", (d: RatingPerLocation) => y(d.avg_rating))
       .attr("width", x.bandwidth())
-      .attr("height", (d: RatingPerLocation) => this.height - y(d.rating))
+      .attr("height", (d: RatingPerLocation) => this.height - y(d.avg_rating))
       .attr("fill", "#f3c42b");
   }
 }

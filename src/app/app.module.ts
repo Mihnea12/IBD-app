@@ -38,7 +38,9 @@ import { TopExpensiveComponent } from './general-statistics/top-expensive/top-ex
 import { TopLowPricedComponent } from './general-statistics/top-low-priced/top-low-priced.component';
 import { TopRatedComponent } from './general-statistics/top-rated/top-rated.component';
 import { MatTableModule } from '@angular/material/table';
-import { FavoriteLocationsComponent } from './favorite-locations/favorite-locations.component'
+import { FavoriteLocationsComponent } from './favorite-locations/favorite-locations.component';
+import { LocationInfoComponent } from './location-info/location-info.component';
+import { LocationVisitsComponent } from './location-info/location-visits/location-visits.component'
 
 @NgModule({
   declarations: [
@@ -51,7 +53,9 @@ import { FavoriteLocationsComponent } from './favorite-locations/favorite-locati
     TopExpensiveComponent,
     TopLowPricedComponent,
     TopRatedComponent,
-    FavoriteLocationsComponent
+    FavoriteLocationsComponent,
+    LocationInfoComponent,
+    LocationVisitsComponent
   ],
   imports: [
     BrowserModule,
