@@ -35,6 +35,7 @@ export class LoginComponent {
         this.alertService.success('Login successfully', options);
         this.router.navigate(['/']);
 
+        localStorage.setItem('user_id', response.user_id);
         localStorage.setItem('first_name', response.first_name);
         localStorage.setItem('last_name', response.last_name);
         localStorage.setItem('email', response.email);
@@ -52,6 +53,7 @@ export class LoginComponent {
         this.router.navigate(['/']);
         this.logged = true;
 
+        localStorage.setItem('user_id', "0");
         localStorage.setItem('first_name', 'admin');
         localStorage.setItem('last_name', 'admin');
         localStorage.setItem('email', 'admin');
