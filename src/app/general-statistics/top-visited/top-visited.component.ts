@@ -17,7 +17,7 @@ export class TopVisitedComponent implements OnInit {
   private height = 400 - (this.margin * 2);
 
   constructor(private appService: AppService) {
-
+    this.topVisited.push(new Visits("",0));
   }
 
   ngOnInit(): void {
@@ -57,7 +57,7 @@ export class TopVisitedComponent implements OnInit {
 
     // Create the Y-axis band scale
     const y = d3.scaleLinear()
-      .domain([0, 50])
+      .domain([0, this.topVisited[0].visits])
       .range([this.height, 0]);
 
     // Draw the Y-axis on the DOM

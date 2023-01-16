@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   title = 'IBD-app';
+  logged = false;
 
   ngOnInit() {
     localStorage.setItem('loginBool', "false" );
