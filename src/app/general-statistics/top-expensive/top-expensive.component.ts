@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {Prices} from "../../model/Prices";
 import {AppService} from "../../service/app.service";
 import * as d3 from "d3";
@@ -21,10 +21,9 @@ export class TopExpensiveComponent {
 
   ngOnInit(): void {
     this.appService.getPrices().subscribe(data => {
-      console.log(data);
       this.topExpensive = data;
-      this.topExpensive.sort((a:Prices, b:Prices) => a.price - b.price);
-      this.topExpensive = this.topExpensive.slice(0,10);
+      this.topExpensive.sort((a: Prices, b: Prices) => b.price - a.price);
+      this.topExpensive = this.topExpensive.slice(0, 10);
       this.createSvg();
       this.drawBars(this.topExpensive);
     });
@@ -41,11 +40,10 @@ export class TopExpensiveComponent {
   }
 
   private drawBars(data: Prices[]): void {
-    console.log(data)
     // Create the X-axis band scale
     const x = d3.scaleBand()
       .range([0, this.width])
-      .domain(data.map((d:Prices) => d.location))
+      .domain(data.map((d: Prices) => d.location))
       .padding(0.2);
 
     // Draw the X-axis on the DOM
@@ -64,6 +62,24 @@ export class TopExpensiveComponent {
     // Draw the Y-axis on the DOM
     this.svg.append("g")
       .call(d3.axisLeft(y));
+
+    this.svg.append("text")
+      .attr("x", (this.width / 2))
+      .attr("y", 0 - (50 / 2))
+      .attr("text-anchor", "middle")
+      .style("font-size", "16px")
+      .style("text-decoration", "underline")
+      .text("Top 10 Most Expensive Locations");
+
+    var margin = {top: 20, right: 20, bottom: 40, left: 60}
+
+// Y axis label:
+    this.svg.append("text")
+      .attr("text-anchor", "end")
+      .attr("transform", "rotate(-90)")
+      .attr("y", -margin.left + 20)
+      .attr("x", -margin.top)
+      .text("Price")
 
     // Create and fill the bars
     this.svg.selectAll("bars")

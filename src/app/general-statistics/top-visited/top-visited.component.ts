@@ -8,7 +8,7 @@ import * as d3 from 'd3';
   templateUrl: './top-visited.component.html',
   styleUrls: ['./top-visited.component.css']
 })
-export class TopVisitedComponent implements OnInit{
+export class TopVisitedComponent implements OnInit {
   topVisited: Visits[] = [];
 
   private svg: any;
@@ -23,8 +23,8 @@ export class TopVisitedComponent implements OnInit{
   ngOnInit(): void {
     this.appService.getVisits().subscribe(data => {
       this.topVisited = data;
-      this.topVisited.sort((a:Visits, b:Visits) => b.visits - a.visits);
-      this.topVisited = this.topVisited.slice(0,10);
+      this.topVisited.sort((a: Visits, b: Visits) => b.visits - a.visits);
+      this.topVisited = this.topVisited.slice(0, 10);
       this.createSvg();
       this.drawBars(this.topVisited);
     });
@@ -41,11 +41,10 @@ export class TopVisitedComponent implements OnInit{
   }
 
   private drawBars(data: Visits[]): void {
-    console.log(data)
     // Create the X-axis band scale
     const x = d3.scaleBand()
       .range([0, this.width])
-      .domain(data.map((d:Visits) => d.location))
+      .domain(data.map((d: Visits) => d.location))
       .padding(0.2);
 
     // Draw the X-axis on the DOM
@@ -65,6 +64,25 @@ export class TopVisitedComponent implements OnInit{
     this.svg.append("g")
       .call(d3.axisLeft(y));
 
+    var margin = {top: 20, right: 20, bottom: 40, left: 60}
+
+    this.svg.append("text")
+      .attr("x", (this.width / 2))
+      .attr("y", 0 - (margin.top / 2))
+      .attr("text-anchor", "middle")
+      .style("font-size", "16px")
+      .style("text-decoration", "underline")
+      .text("Top 10 Most Visited Locations");
+
+
+// Y axis label:
+    this.svg.append("text")
+      .attr("text-anchor", "end")
+      .attr("transform", "rotate(-90)")
+      .attr("y", -margin.left + 20)
+      .attr("x", -margin.top)
+      .text("Number of visits")
+
     // Create and fill the bars
     this.svg.selectAll("bars")
       .data(data)
@@ -74,6 +92,8 @@ export class TopVisitedComponent implements OnInit{
       .attr("y", (d: Visits) => y(d.visits))
       .attr("width", x.bandwidth())
       .attr("height", (d: Visits) => this.height - y(d.visits))
-      .attr("fill", "#d04a35");
+      .attr("fill", "#19d333")
+      .attr("title", "Top Visited");
+
   }
 }

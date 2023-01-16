@@ -21,14 +21,17 @@ export class TopLowPricedComponent {
 
   ngOnInit(): void {
     this.appService.getPrices().subscribe(data => {
-      console.log("low", data);
       this.topExpensive = data;
-      this.topExpensive.sort((a:Prices, b:Prices) => b.price - a.price);
+      this.topExpensive.sort((a:Prices, b:Prices) => a.price - b.price);
       this.topExpensive = this.topExpensive.slice(0,10);
       this.createSvg();
       this.drawBars(this.topExpensive);
     });
 
+  }
+
+  getTopValue(){
+    return this.topExpensive[this.topExpensive.length - 1].price;
   }
 
   private createSvg(): void {
@@ -41,7 +44,6 @@ export class TopLowPricedComponent {
   }
 
   private drawBars(data: Prices[]): void {
-    console.log(data)
     // Create the X-axis band scale
     const x = d3.scaleBand()
       .range([0, this.width])
@@ -58,12 +60,31 @@ export class TopLowPricedComponent {
 
     // Create the Y-axis band scale
     const y = d3.scaleLinear()
-      .domain([0, this.topExpensive[0].price])
+      .domain([0, this.getTopValue()])
       .range([this.height, 0]);
 
     // Draw the Y-axis on the DOM
     this.svg.append("g")
       .call(d3.axisLeft(y));
+
+    this.svg.append("text")
+      .attr("x", (this.width / 2))
+      .attr("y", 0 - (50 / 2))
+      .attr("text-anchor", "middle")
+      .style("font-size", "16px")
+      .style("text-decoration", "underline")
+      .text("Top 10 Locations With The Lower Price");
+
+    var margin = {top: 20, right: 20, bottom: 40, left: 60}
+
+
+// Y axis label:
+    this.svg.append("text")
+      .attr("text-anchor", "end")
+      .attr("transform", "rotate(-90)")
+      .attr("y", -margin.left + 20)
+      .attr("x", -margin.top)
+      .text("Price")
 
     // Create and fill the bars
     this.svg.selectAll("bars")
@@ -74,6 +95,6 @@ export class TopLowPricedComponent {
       .attr("y", (d: Prices) => y(d.price))
       .attr("width", x.bandwidth())
       .attr("height", (d: Prices) => this.height - y(d.price))
-      .attr("fill", "#d04a35");
+      .attr("fill", "#2136b9");
   }
 }

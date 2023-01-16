@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {AppService} from "../../service/app.service";
 import * as d3 from "d3";
 import {RatingPerLocation} from "../../model/RatingPerLocation";
@@ -22,8 +22,8 @@ export class TopRatedComponent {
   ngOnInit(): void {
     this.appService.getRatings().subscribe(data => {
       this.topRated = data;
-      this.topRated.sort((a:RatingPerLocation, b:RatingPerLocation) => b.rating - a.rating);
-      this.topRated = this.topRated.slice(0,10);
+      this.topRated.sort((a: RatingPerLocation, b: RatingPerLocation) => b.rating - a.rating);
+      this.topRated = this.topRated.slice(0, 10);
       this.createSvg();
       this.drawBars(this.topRated);
     });
@@ -35,7 +35,6 @@ export class TopRatedComponent {
       .append("svg")
       .attr("width", this.width + (this.margin * 2))
       .attr("height", this.height + (this.margin * 2))
-      .attr("color", "blue")
       .append("g")
       .attr("transform", "translate(" + this.margin + "," + this.margin + ")");
   }
@@ -44,7 +43,7 @@ export class TopRatedComponent {
     // Create the X-axis band scale
     const x = d3.scaleBand()
       .range([0, this.width])
-      .domain(data.map((d:RatingPerLocation) => d.location))
+      .domain(data.map((d: RatingPerLocation) => d.location))
       .padding(0.2);
 
     // Draw the X-axis on the DOM
@@ -64,6 +63,25 @@ export class TopRatedComponent {
     this.svg.append("g")
       .call(d3.axisLeft(y));
 
+    this.svg.append("text")
+      .attr("x", (this.width / 2))
+      .attr("y", 0 - (50 / 2))
+      .attr("text-anchor", "middle")
+      .style("font-size", "16px")
+      .style("text-decoration", "underline")
+      .text("Top 10 Locations");
+
+    var margin = {top: 20, right: 20, bottom: 40, left: 60}
+
+
+// Y axis label:
+    this.svg.append("text")
+      .attr("text-anchor", "end")
+      .attr("transform", "rotate(-90)")
+      .attr("y", -margin.left + 20)
+      .attr("x", -margin.top)
+      .text("Rating")
+
     // Create and fill the bars
     this.svg.selectAll("bars")
       .data(data)
@@ -73,6 +91,6 @@ export class TopRatedComponent {
       .attr("y", (d: RatingPerLocation) => y(d.rating))
       .attr("width", x.bandwidth())
       .attr("height", (d: RatingPerLocation) => this.height - y(d.rating))
-      .attr("fill", "#d04a35");
+      .attr("fill", "#f3c42b");
   }
 }
