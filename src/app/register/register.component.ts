@@ -11,7 +11,7 @@ import {Router} from "@angular/router";
 export class RegisterComponent {
   loginBool: boolean = false;
 
-  registerUser: User = new User("","", "", "", "", 0, "");
+  registerUser: User = new User("","","", "", "", "", 0, "");
 
   constructor(private appService: AppService, public router: Router) {
     this.loginBool = localStorage.getItem('loginBool') == 'true';
