@@ -37,17 +37,17 @@ export class AppService {
   }
 
   public getVisits() {
-    let visitsURL = this.URL + '/visits/count';
+    let visitsURL = this.URL + '/entities/visits';
     return this.http.get<Visits[]>(visitsURL);
   }
 
   public getPrices() {
-    let pricesURL = this.URL + '/visits/spending';
+    let pricesURL = this.URL + '/stats/visits/spending';
     return this.http.get<Prices[]>(pricesURL);
   }
 
   public getRatings() {
-    let ratingsURL = this.URL + '/visits/ratings';
+    let ratingsURL = this.URL + '/stats/visits/ratings';
     return this.http.get<RatingPerLocation[]>(ratingsURL);
   }
 
