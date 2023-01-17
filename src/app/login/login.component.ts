@@ -44,7 +44,8 @@ export class LoginComponent {
         localStorage.setItem('last_name', response.last_name);
         localStorage.setItem('email', response.email);
         localStorage.setItem('username', response.username);
-
+        this.logged = true;
+        localStorage.setItem('loginBool', String(this.logged));
         this.loggedInEventEmitter.emit(response);
 
       }

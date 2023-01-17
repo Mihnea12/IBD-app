@@ -25,7 +25,7 @@ export class AppComponent implements OnInit, OnChanges {
 
 
   ngOnInit() {
-    localStorage.setItem('loginBool', "false");
+    this.logged = localStorage.getItem('loginBool') == 'true';
   }
 
   ngOnChanges(changes: SimpleChanges) {
