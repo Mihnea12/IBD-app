@@ -17,7 +17,11 @@ export class AppService {
 
   constructor(private http: HttpClient) {
     //TODO Backend Address
-    this.URL = 'https://b3410b4c-6ec3-4acf-a5cd-c86b8de260b2.mock.pstmn.io';
+    this.URL = 'http://localhost:8081';
+  }
+
+  public healthCheck(){
+    return this.http.get(this.URL);
   }
 
   public register(user: User) {
@@ -33,19 +37,16 @@ export class AppService {
   }
 
   public getVisits() {
-    //TODO Add path
     let visitsURL = this.URL + '/visits/count';
     return this.http.get<Visits[]>(visitsURL);
   }
 
   public getPrices() {
-    //TODO Add path
     let pricesURL = this.URL + '/visits/spending';
     return this.http.get<Prices[]>(pricesURL);
   }
 
   public getRatings() {
-    //TODO Add path
     let ratingsURL = this.URL + '/visits/ratings';
     return this.http.get<RatingPerLocation[]>(ratingsURL);
   }
@@ -63,8 +64,8 @@ export class AppService {
   }
 
   public getVisitsForLocation(locationId: string){
-    let visitsURL = this.URL + '/visits/' + locationId;
-    return this.http.get<Date[]>(visitsURL);
+    let visitsURL = this.URL + '/visits/timestamps' ;
+    return this.http.post<Date[]>(visitsURL, locationId);
   }
 
   public addVisit(visit: Visit) {

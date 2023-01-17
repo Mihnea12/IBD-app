@@ -1,6 +1,7 @@
 import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {User} from "./model/User";
 import {Router} from "@angular/router";
+import {AppService} from "./service/app.service";
 
 @Component({
   selector: 'app-root',
@@ -13,8 +14,12 @@ export class AppComponent implements OnInit, OnChanges {
   login: boolean = false;
   user?: User;
 
-  constructor(private router: Router) {
-
+  constructor(private router: Router, private appService: AppService) {
+    this.appService.healthCheck().subscribe(data => {
+      console.log(data);
+    }, error => {
+      console.log("err", error)
+    })
 
   }
 
