@@ -21,5 +21,6 @@ export class RegisterComponent {
   onClickSubmit() {
     console.log(this.registerUser.username);
     this.appService.register(this.registerUser);
+    this.router.navigate(['login']);
   }
 }

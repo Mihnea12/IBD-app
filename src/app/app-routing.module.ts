@@ -6,10 +6,11 @@ import {RegisterComponent} from "./register/register.component";
 import {GeneralStatisticsComponent} from "./general-statistics/general-statistics.component";
 import { FavoriteLocationsComponent } from './favorite-locations/favorite-locations.component';
 import {LocationInfoComponent} from "./location-info/location-info.component";
+import {HomeComponent} from "./home/home.component";
 
 const routes: Routes = [
+  {path: '', component: HomeComponent},
   {path: 'map', component: GoogleMapComponent},
-  {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'general-statistics', component: GeneralStatisticsComponent},
   {path: 'locations', component: FavoriteLocationsComponent},

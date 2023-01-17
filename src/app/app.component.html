@@ -4,25 +4,40 @@
   </div>
   <div class="nav-bar">
     <a class="nav-link" routerLink="/" routerLinkActive="active">
-      <button mat-raised-button>Home</button>
+      <button mat-raised-button>
+        Home
+      </button>
     </a>
-    <a class="nav-link" routerLink="/map" routerLinkActive="active">
-      <button mat-raised-button>Map</button>
+    <a class="nav-link" [routerLink]="logged ? '/' : '#'" routerLinkActive="active">
+      <button mat-raised-button [disabled]="!logged">
+        Map
+      </button>
     </a>
-    <a class="nav-link" routerLink="/locations" routerLinkActive="active">
-      <button mat-raised-button>Favorite Locations</button>
+    <a class="nav-link" [routerLink]="logged ? '/locations' : '#'" routerLinkActive="active">
+      <button mat-raised-button [disabled]="!logged">
+        Favorite Locations
+      </button>
     </a>
-    <a class="nav-link" routerLink="/general-statistics" routerLinkActive="active">
-      <button mat-raised-button>General Statistics</button>
+    <a class="nav-link" [routerLink]="logged ? '/general-statistics' : '#'" routerLinkActive="active">
+      <button mat-raised-button [disabled]="!logged">
+        General Statistics
+      </button>
     </a>
-    <a class="nav-link" style="float: right;" routerLink="/login" routerLinkActive="active">
-      <button mat-raised-button>Login</button>
+    <a class="nav-link" *ngIf="!logged" style="float: right;" routerLinkActive="active">
+      <button mat-raised-button (click)="login = true">Login</button>
     </a>
-    <a class="nav-link" style="float: right;" routerLink="/register" routerLinkActive="active">
+    <a class="nav-link" *ngIf="!logged" style="float: right;" routerLink="/register" routerLinkActive="active">
       <button mat-raised-button>Register</button>
     </a>
+
+    <a class="nav-link" *ngIf="logged" style="float: right;" routerLink="/register" routerLinkActive="active">
+      <button mat-raised-button (click)="logout()">Logout</button>
+    </a>
   </div>
-  <div class="content">
+  <div class="content" *ngIf="!login">
     <router-outlet></router-outlet>
+  </div>
+  <div class="content" *ngIf="login">
+    <app-login (loggedInEventEmitter)="loggedEventHandler($event)"></app-login>
   </div>
 </div>

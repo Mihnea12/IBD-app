@@ -40,7 +40,8 @@ import { TopRatedComponent } from './general-statistics/top-rated/top-rated.comp
 import { MatTableModule } from '@angular/material/table';
 import { FavoriteLocationsComponent } from './favorite-locations/favorite-locations.component';
 import { LocationInfoComponent } from './location-info/location-info.component';
-import { LocationVisitsComponent } from './location-info/location-visits/location-visits.component'
+import { LocationVisitsComponent } from './location-info/location-visits/location-visits.component';
+import { HomeComponent } from './home/home.component'
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { LocationVisitsComponent } from './location-info/location-visits/locatio
     TopRatedComponent,
     FavoriteLocationsComponent,
     LocationInfoComponent,
-    LocationVisitsComponent
+    LocationVisitsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

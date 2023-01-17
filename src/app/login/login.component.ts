@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {Auth} from "../model/Auth";
 import {AppService} from "../service/app.service";
 import {Router} from "@angular/router";
 import {AlertService} from '../_alert';
+import {User} from "../model/User";
 
 @Component({
   selector: 'app-login',
@@ -12,6 +13,9 @@ import {AlertService} from '../_alert';
 export class LoginComponent {
   auth: Auth = new Auth("","");
   logged: boolean = false;
+
+  @Output()
+  loggedInEventEmitter: EventEmitter<User> = new EventEmitter<User>();
 
   constructor(private appService: AppService,
               private alertService: AlertService,
@@ -41,6 +45,8 @@ export class LoginComponent {
         localStorage.setItem('email', response.email);
         localStorage.setItem('username', response.username);
 
+        this.loggedInEventEmitter.emit(response);
+
       }
       localStorage.setItem('loginBool', String(this.logged));
     },error => {
@@ -59,7 +65,7 @@ export class LoginComponent {
         localStorage.setItem('email', 'admin');
         localStorage.setItem('username', 'admin');
         localStorage.setItem('loginBool', String(this.logged));
-
+        this.loggedInEventEmitter.emit(new User("0","admin", "admin", "admin", "admin", "admin",30, ""));
       }
     });
   }
