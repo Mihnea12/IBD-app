@@ -18,17 +18,25 @@ export class FavoriteLocationsComponent {
 
     constructor(private appService: AppService, private router: Router) {
         this.favoriteLocations = []
-        this.favoriteLocations.push(new Location('id1','locatie',1,2,'tip',5))
+        // this.favoriteLocations.push(new Location('id1','locatie',1,2,'tip',5))
         this.favoriteLocations.push(new Location('id2','locatie',1,2,'tip',5))
-        this.favoriteLocations.push(new Location('id3','locatie',1,2,'tip',5))
-        this.favoriteLocations.push(new Location('id4','locatie',1,2,'tip',5))
-        this.favoriteLocations.push(new Location('id5','locatie',1,2,'tip',5))
+        // this.favoriteLocations.push(new Location('id3','locatie',1,2,'tip',5))
+        // this.favoriteLocations.push(new Location('id4','locatie',1,2,'tip',5))
+        // this.favoriteLocations.push(new Location('id5','locatie',1,2,'tip',5))
         this.dataSource = new MatTableDataSource(this.favoriteLocations)
     }
     ngOnInit() {
         this.appService.getLocations().subscribe(response => {
             console.log(response)
+            response.forEach(element => {
+                this.favoriteLocations.push(new Location(element.location_id, element.name, element.longitude, element.latitude, element.type, element.rating))
+            });
         })
+        this.dataSource = new MatTableDataSource(this.favoriteLocations)
+    }
+    ngAfterViewInit() {
+        console.log(this.favoriteLocations)
+        this.dataSource = new MatTableDataSource(this.favoriteLocations)
     }
     redirect(location: Location) {
         console.log(location)

@@ -33,6 +33,7 @@ export class LocationInfoComponent {
     this.visit.comment = (<HTMLInputElement>document.getElementById('comment')).value;
     this.visit.date_time = (<HTMLInputElement>document.getElementById('date')).value;
     this.visit.rating = Number((<HTMLInputElement>document.getElementById('rating')).value);
+    this.visit.date_time = this.visit.date_time + "T00:00:00Z"
     console.log(this.visit)
     this.appService.addVisit(this.visit);
   }
