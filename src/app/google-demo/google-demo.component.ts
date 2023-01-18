@@ -99,6 +99,7 @@ export class GoogleMapComponent implements OnInit {
         this.map.fitBounds(autocomplete.getPlace().geometry!.viewport!);
         
         this.reviews = place.reviews
+        this.dataReviews = []
         this.reviews.forEach((review: any) => {
             var newReview = {
                 nameUser: review.author_name,
