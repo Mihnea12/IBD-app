@@ -64,7 +64,7 @@ export class AppService {
   }
 
   public getVisitsForLocation(locationId: string){
-    let visitsURL = this.URL + '/visits/timestamps' ;
+    let visitsURL = this.URL + '/stats/visits/timestamps' ;
     return this.http.post<Date[]>(visitsURL, locationId);
   }
 

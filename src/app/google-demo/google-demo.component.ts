@@ -27,7 +27,7 @@ export class GoogleMapComponent implements OnInit {
   center!: google.maps.LatLngLiteral;
   options: google.maps.MapOptions = {
     zoomControl: true,
-    scrollwheel: false,
+    scrollwheel: true,
     disableDefaultUI: true,
     fullscreenControl: true,
     disableDoubleClickZoom: true,

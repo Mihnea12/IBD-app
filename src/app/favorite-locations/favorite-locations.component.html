@@ -1,14 +1,5 @@
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-    <a routerLink="/" routerLinkActive="active">
-
-        <!-- Name Column -->
-        <ng-container matColumnDef="idLocation">
-            <th mat-header-cell *matHeaderCellDef> idLocation </th>
-            <td mat-cell *matCellDef="let element"> {{element.location_id}} </td>
-        </ng-container>
-    </a>
-        
+<button mat-raised-button color="accent" (click)="refresh()">Refresh table</button>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">        
     <!-- Comment Column -->
     <ng-container matColumnDef="nameLocation">
       <th mat-header-cell *matHeaderCellDef> Location </th>
