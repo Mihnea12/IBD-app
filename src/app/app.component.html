@@ -3,22 +3,22 @@
     <a href="#"><h1>My City - My Places</h1></a>
   </div>
   <div class="nav-bar">
-    <a class="nav-link" routerLink="/" routerLinkActive="active">
+    <a class="nav-link">
       <button mat-raised-button (click)="router.navigate(['/'])">
         Home
       </button>
     </a>
-    <a class="nav-link" [routerLink]="logged ? '/map' : '#'" routerLinkActive="active">
+    <a class="nav-link">
       <button mat-raised-button [disabled]="!logged" (click)="router.navigate(['/map'])">
         Map
       </button>
     </a>
-    <a class="nav-link" [routerLink]="logged ? '/locations' : '#'" routerLinkActive="active">
+    <a class="nav-link" >
       <button mat-raised-button [disabled]="!logged" (click)="router.navigate(['/locations'])">
         Favorite Locations
       </button>
     </a>
-    <a class="nav-link" [routerLink]="logged ? '/general-statistics' : '#'" routerLinkActive="active">
+    <a class="nav-link">
       <button mat-raised-button [disabled]="!logged" (click)="router.navigate(['/general=statistics'])">
         General Statistics
       </button>
