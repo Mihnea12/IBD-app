@@ -2,27 +2,45 @@
 
 <button mat-raised-button (click)="addVisit()">Add visit</button>
 <div class="review" id="review">
-    <input
-      type="text"
-      class="rating"
-      id="rating"
-      placeholder="Rating"
-      type="text"
-    />
-    <input
-    type="text"
-    class="comment"
-    id="comment"
-    placeholder="Comemnt"
-    type="text"
-    />
-    <input
-    type="text"
-    class="cash"
-    id="cash"
-    placeholder="Cash"
-    type="text"
-    />
-    <input type="date" id="date"/>
-    <button mat-raised-button (click)="submitVisit()">Submit</button>
+  <div class="container-form">
+    <div class="form-wrapper">
+      <div class="form">
+        <div class="input-wrapper">
+          <label for="rating">Rating: </label>
+          <input
+            type="text"
+            class="rating"
+            id="rating"
+            placeholder="Rating"
+            type="text"
+          />
+        </div>
+        <div class="input-wrapper">
+          <label for="comment">Comment: </label>
+          <input
+            type="text"
+            class="comment"
+            id="comment"
+            placeholder="Comment"
+            type="text"
+          />
+        </div>
+        <div class="input-wrapper">
+          <label for="cash">Cash: </label>
+          <input
+            type="text"
+            class="cash"
+            id="cash"
+            placeholder="Cash"
+            type="text"
+          />
+        </div>
+        <div class="input-wrapper">
+          <label for="date">Username: </label>
+          <input type="date" id="date"/>
+        </div>
+        <button class="btn" (click)="submitVisit()">Submit</button>
+      </div>
+    </div>
+  </div>
 </div>
