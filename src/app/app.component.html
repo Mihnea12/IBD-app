@@ -4,22 +4,22 @@
   </div>
   <div class="nav-bar">
     <a class="nav-link" routerLink="/" routerLinkActive="active">
-      <button mat-raised-button>
+      <button mat-raised-button (click)="router.navigate(['/'])">
         Home
       </button>
     </a>
     <a class="nav-link" [routerLink]="logged ? '/map' : '#'" routerLinkActive="active">
-      <button mat-raised-button [disabled]="!logged">
+      <button mat-raised-button [disabled]="!logged" (click)="router.navigate(['/map'])">
         Map
       </button>
     </a>
     <a class="nav-link" [routerLink]="logged ? '/locations' : '#'" routerLinkActive="active">
-      <button mat-raised-button [disabled]="!logged">
+      <button mat-raised-button [disabled]="!logged" (click)="router.navigate(['/locations'])">
         Favorite Locations
       </button>
     </a>
     <a class="nav-link" [routerLink]="logged ? '/general-statistics' : '#'" routerLinkActive="active">
-      <button mat-raised-button [disabled]="!logged">
+      <button mat-raised-button [disabled]="!logged" (click)="router.navigate(['/general=statistics'])">
         General Statistics
       </button>
     </a>
@@ -29,8 +29,8 @@
     <a class="nav-link" *ngIf="!logged" style="float: right;" routerLink="/register" routerLinkActive="active">
       <button mat-raised-button>Register</button>
     </a>
-
-    <a class="nav-link" *ngIf="logged" style="float: right;" routerLink="/register" routerLinkActive="active">
+Fix
+    <a class="nav-link" *ngIf="logged" style="float: right;">
       <button mat-raised-button (click)="logout()">Logout</button>
     </a>
   </div>

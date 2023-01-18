@@ -14,7 +14,7 @@ export class AppComponent implements OnInit, OnChanges {
   login: boolean = false;
   user?: User;
 
-  constructor(private router: Router, private appService: AppService) {
+  constructor(public router: Router, private appService: AppService) {
     this.appService.healthCheck().subscribe(data => {
       console.log(data);
     }, error => {
