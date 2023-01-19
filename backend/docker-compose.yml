@@ -1,0 +1,19 @@
+version: '3'
+services:
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Password1!
+    ports:
+      - '1433:1433'
+    volumes:
+      - sqlvolume:/var/opt/mssql
+  backend:
+    build: .
+    restart: always
+    ports:
+      - "8081:8081"
+
+volumes:
+  sqlvolume: {}
